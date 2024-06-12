@@ -1,3 +1,4 @@
+import telegram
 from telegram.ext import Updater, MessageHandler, Filters
 import numpy as np
 import cv2
@@ -94,7 +95,7 @@ def reply_voice(update, context):
             except sr.UnknownValueError:
                 context.bot.send_message(chat_id=update.effective_chat.id, text="لم أستطع فهم الصوت المرسل. حاول مرة أخرى.")
         except sr.RequestError as e:
-            context.bot.send_message(chat_id=update.effective_chat.id, text=f"تعذر طلب النتائج من خدمة التعرف على الصوت  ؛ {e}")
+            context.bot.send_message(chat_id=update.effective_chat.id, text=f"تعذر طلب النتائج من خدمة التعرف على الصوت من ؛ {e}")
 
 start_handler = MessageHandler(Filters.command, start)
 message_handler = MessageHandler(Filters.all, handle_message)
